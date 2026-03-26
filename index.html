@@ -6,19 +6,73 @@
     <title>My Advice</title>
     <link rel="stylesheet" href="/src/css/style.css" />
   </head>
+
   <body>
     <header>
-      <h1>My advice</h1>
+      <h1>Workout Recommender</h1>
+      <div class="subtitle">
+        Find the perfect workout for your goals and equipment!
+      </div>
     </header>
-
-    <main>
-      <p id="message"></p>
+    <main class="main-container">
+      <section class="left-col">
+        <form id="preference-form" autocomplete="off">
+          <div>
+            <label for="type">Workout Type</label>
+            <select id="type" name="type">
+              <option>Any Type</option>
+              <option>Cardio</option>
+              <option>Strength</option>
+              <option>Flexibility</option>
+              <option>HIIT</option>
+            </select>
+          </div>
+          <div>
+            <label for="target">Target Area</label>
+            <select id="target" name="target">
+              <option>Any Area</option>
+              <option>Full Body</option>
+              <option>Upper Body</option>
+              <option>Lower Body</option>
+              <option>Core</option>
+            </select>
+          </div>
+          <div>
+            <label for="equipment">Equipment</label>
+            <select id="equipment" name="equipment">
+              <option>Any Equipment</option>
+              <option>No Equipment</option>
+              <option>Dumbbells</option>
+              <option>Resistance Bands</option>
+              <option>Kettlebell</option>
+            </select>
+          </div>
+          <div>
+            <label for="duration">Duration</label>
+            <select id="duration" name="duration">
+              <option>Any Duration</option>
+              <option>15 minutes</option>
+              <option>30 minutes</option>
+              <option>45 minutes</option>
+              <option>60+ minutes</option>
+            </select>
+          </div>
+          <div>
+            <label for="difficulty">Difficulty</label>
+            <select id="difficulty" name="difficulty">
+              <option>Any Difficulty</option>
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+          </div>
+          <button type="submit">Find Workout</button>
+        </form>
+      </section>
+      <section class="right-col">
+        <div id="results-list">Your recommended workouts will appear here.</div>
+      </section>
     </main>
-
-    <footer>
-      <p>&copy; 2026</p>
-    </footer>
-
-    <script type="module" src="/src/js/app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>

@@ -60,4 +60,6 @@ src/css/style.css    ← all styles
 
 ## My personal instructions
 
-_(Add your own here — what helps you learn, what you want the agent to always or never do, context about your project.)_
+- When I ask you to explain something, use an analogy before showing code.
+- I work better with short examples I can run immediately, not long complete solutions.
+- Ask one question at a time
