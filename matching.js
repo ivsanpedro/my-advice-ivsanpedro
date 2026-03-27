@@ -1,19 +1,41 @@
 // matching.js for Workout Recommender
-
+/**
+ * @param {*} workout - The workout to check
+ * @param {*} type - The type of workout the user wants
+ * @returns boolean - True if the workout matches the type preference, false otherwise
+ */
 export function matchesType(workout, type) {
-  return type === "Any Type" || workout.type === type;
+  if (!type) return true; // If no type is selected, match all
+  return workout.type === type;
 }
 
+/**
+ * @param {*} workout - The workout to check
+ * @param {*} targetArea - The target area the user wants
+ * @returns boolean - True if the workout matches the target area preference, false otherwise
+ */
 export function matchesTarget(workout, targetArea) {
-  return targetArea === "Any Area" || workout.targetArea === targetArea;
+  if (!targetArea) return true; // If no target area is selected, match all
+  return workout.targetArea === targetArea;
 }
 
+/**
+ * @param {*} workout - The workout to check
+ * @param {*} equipment - The equipment the user wants
+ * @returns boolean - True if the workout matches the equipment preference, false otherwise
+ */
 export function matchesEquipment(workout, equipment) {
-  return equipment === "Any Equipment" || workout.equipment === equipment;
+  if (!equipment) return true; // If no equipment is selected, match all
+  return workout.equipment === equipment;
 }
 
+/**
+ * @param {*} workout - The workout to check for
+ * @param {*} duration - The duration the user wants
+ * @returns boolean - True if the workout matches the duration preference, false otherwise
+ */
 export function matchesDuration(workout, duration) {
-  if (duration === "Any Duration") return true;
+  if (!duration) return true; // If no duration is selected, match all
   const mins = workout.durationMinutes;
   if (duration === "15 minutes") return mins <= 15;
   if (duration === "30 minutes") return mins > 15 && mins <= 30;
@@ -22,6 +44,23 @@ export function matchesDuration(workout, duration) {
   return false;
 }
 
+/**
+ * 
+ * @param {*} workout - The workout to check
+ * @param {*} difficulty - The desired workout difficulty
+ * @returns boolean - True if the workout matched the difficulty preference, false otherwise
+ */
 export function matchesDifficulty(workout, difficulty) {
-  return difficulty === "Any Difficulty" || workout.difficulty === difficulty;
+  if (!difficulty) return true; // If no difficulty is selected, match all
+  return workout.difficulty === difficulty;
+}
+
+export function matchesAllPreferences(workout, preference) {
+  return (
+    matchesType(workout, preference.type) &&
+    matchesTarget(workout, preference.target) && 
+    matchesEquipment(workout, preference.equipment) &&
+    matchesDuration(workout, preference.duration) &&
+    matchesDifficulty(workout, preference.difficulty)
+  );
 }
