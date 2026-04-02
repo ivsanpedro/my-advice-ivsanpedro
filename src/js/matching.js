@@ -58,7 +58,7 @@ export function matchesDifficulty(workout, difficulty) {
 export function matchesAllPreferences(workout, preference) {
   return (
     matchesType(workout, preference.type) &&
-    matchesTarget(workout, preference.target) &&
+    matchesTarget(workout, preference.targetArea) &&
     matchesEquipment(workout, preference.equipment) &&
     matchesDuration(workout, preference.duration) &&
     matchesDifficulty(workout, preference.difficulty)

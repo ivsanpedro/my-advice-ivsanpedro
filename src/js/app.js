@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Get user preferences
     const preferences = {
       type: document.getElementById('type').value,
-      target: document.getElementById('target').value,
+      targetArea: document.getElementById('target').value,
       equipment: document.getElementById('equipment').value,
       duration: document.getElementById('duration').value,
       difficulty: document.getElementById('difficulty').value,
