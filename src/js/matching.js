@@ -37,15 +37,15 @@ export function matchesEquipment(workout, equipment) {
 export function matchesDuration(workout, duration) {
   if (!duration) return true; // If no duration is selected, match all
   const mins = workout.durationMinutes;
-  if (duration === "15 minutes") return mins <= 15;
-  if (duration === "30 minutes") return mins > 15 && mins <= 30;
-  if (duration === "45 minutes") return mins > 30 && mins <= 45;
-  if (duration === "60+ minutes") return mins > 45;
+  if (duration === '15 minutes') return mins <= 15;
+  if (duration === '30 minutes') return mins > 15 && mins <= 30;
+  if (duration === '45 minutes') return mins > 30 && mins <= 45;
+  if (duration === '60+ minutes') return mins > 45;
   return false;
 }
 
 /**
- * 
+ *
  * @param {*} workout - The workout to check
  * @param {*} difficulty - The desired workout difficulty
  * @returns boolean - True if the workout matched the difficulty preference, false otherwise
@@ -58,7 +58,7 @@ export function matchesDifficulty(workout, difficulty) {
 export function matchesAllPreferences(workout, preference) {
   return (
     matchesType(workout, preference.type) &&
-    matchesTarget(workout, preference.target) && 
+    matchesTarget(workout, preference.target) &&
     matchesEquipment(workout, preference.equipment) &&
     matchesDuration(workout, preference.duration) &&
     matchesDifficulty(workout, preference.difficulty)
