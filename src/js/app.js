@@ -3,8 +3,8 @@ import { data } from './data.js';
 import { matchesAllPreferences } from './matching.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('preference-form');
-  const resultsList = document.getElementById('results-list');
+  const form = document.querySelector('#preference-form');
+  const resultsList = document.querySelector('#results-list');
 
   form.addEventListener('submit', function (e) {
     // Prevent form from submitting normally
@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Get user preferences
     const preferences = {
-      type: document.getElementById('type').value,
-      targetArea: document.getElementById('target').value,
-      equipment: document.getElementById('equipment').value,
-      duration: document.getElementById('duration').value,
-      difficulty: document.getElementById('difficulty').value,
+      type: document.querySelector('#type').value,
+      targetArea: document.querySelector('#target').value,
+      equipment: document.querySelector('#equipment').value,
+      duration: document.querySelector('#duration').value,
+      difficulty: document.querySelector('#difficulty').value,
     };
 
     //Convert numbers to strings for matching
@@ -70,14 +70,32 @@ document.addEventListener('DOMContentLoaded', () => {
   function createCard(workout) {
     const card = document.createElement('div');
     card.className = 'workout-card';
-    card.innerHTML = `
-        <h3>${workout.name}</h3>
-        <p>Type: ${workout.type}</p>
-        <p>Target Area: ${workout.targetArea}</p>
-        <p>Equipment: ${workout.equipment}</p>
-        <p>Duration: ${workout.durationMinutes} minutes</p>
-        <p>Difficulty: ${workout.difficulty}</p>
-    `;
+
+    const heading = document.createElement('h3');
+    heading.textContent = workout.name;
+
+    const type = document.createElement('p');
+    type.textContent = workout.type;
+
+    const targetArea = document.createElement('p');
+    targetArea.textContent = workout.targetArea;
+
+    const equipment = document.createElement('p');
+    equipment.textContent = workout.equipment;
+
+    const duration = document.createElement('p');
+    duration.textContent = workout.durationMinutes + ' minutes';
+
+    const difficulty = document.createElement('p');
+    difficulty.textContent = workout.difficulty;
+
+    card.appendChild(heading);
+    card.appendChild(type);
+    card.appendChild(targetArea);
+    card.appendChild(equipment);
+    card.appendChild(duration);
+    card.appendChild(difficulty);
+
     return card;
   }
 });
