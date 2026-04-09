@@ -2,6 +2,30 @@
 import { data } from './data.js';
 import { matchesAllPreferences } from './matching.js';
 
+// Runs every 2 seconds to toggle the visibility of the subtitle, creating a blinking effect.
+const subtitle = document.querySelector('.subtitle');
+
+let isVisible = true;
+setInterval(() => {
+  if (isVisible) {
+    subtitle.classList.add('hidden');
+  } else {
+    subtitle.classList.remove('hidden');
+  }
+  isVisible = !isVisible;
+}, 2000);
+
+// Adds a footer into the HTML
+const footer = document.createElement('footer');
+const footerText = document.createElement('p');
+footerText.textContent = 'Built by Ivana San Pedro🧌';
+footer.appendChild(footerText);
+document.body.appendChild(footer);
+
+// Adds a light pink border to the form section to highlight
+const formSection = document.querySelector('.left-col');
+formSection.classList.add('highlight-experiment');
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#preference-form');
   const resultsList = document.querySelector('#results-list');
