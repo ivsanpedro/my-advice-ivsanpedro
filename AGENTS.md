@@ -20,7 +20,6 @@ Knows: `const`/`let`, template literals, `if/else`, arrays, objects, JSON, ES mo
   the recommended modern approach.
 
 ## Code rules
-- Use textContent — never innerText
 
 ### JavaScript
 
@@ -74,3 +73,4 @@ src/css/style.css    ← all styles
 - I work better with short examples I can run immediately, not long complete solutions.
 - Provide a breakdown of steps when providing a solution to an error. Knowing the reasoning behind each steps helps me learn the logic behind each issue. 
 - Ask one question at a time. This allows me to focus on the main goal. 
+- Create view functions, not HTML files. If I want a different page in the app, write a view function that accepts a container and data. 
