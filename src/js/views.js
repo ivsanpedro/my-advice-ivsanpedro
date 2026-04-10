@@ -76,7 +76,6 @@ function createCard(workout) {
   heading.textContent = workout.name;
 
   card.appendChild(heading);
-
   return card;
 }
 
